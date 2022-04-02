@@ -3,7 +3,7 @@
  */
 class XCall {
   private static instance: XCall;
-  private constructor() { } // 不能初始化
+  private constructor() { } // 单例禁止外部初始化
 
   /**
    * 获取 XCall 单例
