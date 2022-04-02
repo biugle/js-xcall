@@ -1,21 +1,21 @@
 # js-xcall
 
-一个简单的事件派发单例类
+A Simple Events Dispatcher Singleton Class.
 
-## 安装
+## Install
 
 ```bash
 npm install js-xcall -S
 ```
 
-## 引入
+## Import
 
 ```javascript
 const { XCall } = require('js-xcall');
 import { XCall } from 'js-xcall';
 ```
 
-## 使用
+## Use
 
 ```javascript
 console.log(XCall);
@@ -43,14 +43,14 @@ console.log(
 XCall.removeCallBack('test', test);
 
 XCall.dispatch('test'); // test1 [Arguments] {}
-XCall.dispatch('test-not'); // Error: 未找到回调事件 test-not 的监听
+XCall.dispatch('test-not'); // Error: not found test-not
 ```
 
-## API 列表
+## API Docs
 
 [API Docs](https://github.com/pandaoh/js-xcall/blob/main/docs/README.md)
 
-## 其他
+## Others
 
 * [Issue](https://github.com/pandaoh/js-xcall/issues)
 * [Pull Request](https://github.com/pandaoh/js-xcall/pulls)

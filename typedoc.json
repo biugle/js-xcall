@@ -1,0 +1,9 @@
+{
+  "entryPoints": [
+    "src/xcall.ts"
+  ],
+  "out": "docs",
+  "readme": "none",
+  "includeVersion": true,
+  "disableSources": true
+}
