@@ -80,3 +80,4 @@ class XCall {
 }
 
 export { XCall };
+export default XCall;

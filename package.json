@@ -1,6 +1,6 @@
 {
   "name": "js-xcall",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A Simple Events Dispatcher Singleton Class.",
   "main": "lib/index.js",
   "module": "es/index.js",

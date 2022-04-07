@@ -13,6 +13,7 @@ npm install js-xcall -S
 ```javascript
 const { XCall } = require('js-xcall');
 import { XCall } from 'js-xcall';
+import XCall from 'js-xcall';
 ```
 
 ## Use

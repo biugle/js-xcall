@@ -47,4 +47,4 @@ var XCall = (function () {
     return XCall;
 }());
 
-export { XCall };
+export { XCall, XCall as default };

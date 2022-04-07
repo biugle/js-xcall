@@ -9,4 +9,5 @@ declare class XCall {
     static dispatch(eventKey: string, ...args: any): void;
 }
 export { XCall };
+export default XCall;
 //# sourceMappingURL=xcall.d.ts.map

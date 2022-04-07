@@ -54,6 +54,7 @@
   }());
 
   exports.XCall = XCall;
+  exports["default"] = XCall;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
