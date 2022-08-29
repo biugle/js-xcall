@@ -1,3 +1,11 @@
+/*
+ * @Author: HxB
+ * @Date: 2022-08-29 11:19:48
+ * @LastEditors: DoubleAm
+ * @LastEditTime: 2022-08-29 11:48:59
+ * @Description: 主程序
+ * @FilePath: \js-xcall\src\index.ts
+ */
 /**
  * XCall 单例类
  */
@@ -38,6 +46,18 @@ class XCall {
   }
 
   /**
+   * 校验是否存在某个事件
+   * @param eventKey
+   * @returns
+   */
+  static existEvent(eventKey: string): boolean {
+    if (!XCall.getInstance()._callBackMap[eventKey]) {
+      return false;
+    }
+    return !!XCall.getInstance()._callBackMap[eventKey]?.length;
+  }
+
+  /**
    * 添加某个事件与方法
    * @param eventKey
    * @param callback
@@ -49,6 +69,20 @@ class XCall {
     if (!XCall.hasCallBack(eventKey, callback)) {
       XCall.getInstance()._callBackMap[eventKey]?.push(callback);
     }
+  }
+
+  /**
+   * 设置某个一次性事件方法
+   * @param eventKey
+   * @param callback
+   */
+  static setOnceCallBack(eventKey: string, callback: Function): void {
+    function _callback(...args: any[]) {
+      // const args = Array.prototype.slice.call(arguments);
+      callback?.apply(null, args);
+      XCall.removeCallBack(eventKey, _callback);
+    }
+    XCall.addCallBack(eventKey, _callback);
   }
 
   /**
@@ -71,7 +105,7 @@ class XCall {
    * @param eventKey
    * @param args
    */
-  static dispatch(eventKey: string, ...args: any) {
+  static dispatch(eventKey: string, ...args: any[]) {
     if (!XCall.getInstance()._callBackMap[eventKey]) {
       throw new Error(`未找到回调事件 ${eventKey} 的监听`);
     }

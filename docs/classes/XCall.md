@@ -1,4 +1,4 @@
-[js-xcall - v1.2.0](../README.md) / XCall
+[js-xcall - v1.2.1](../README.md) / XCall
 
 # Class: XCall
 
@@ -19,9 +19,11 @@ XCall 单例类
 
 - [addCallBack](XCall.md#addcallback)
 - [dispatch](XCall.md#dispatch)
+- [existEvent](XCall.md#existevent)
 - [getInstance](XCall.md#getinstance)
 - [hasCallBack](XCall.md#hascallback)
 - [removeCallBack](XCall.md#removecallback)
+- [setOnceCallBack](XCall.md#setoncecallback)
 
 ## Constructors
 
@@ -81,11 +83,29 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `eventKey` | `string` |
-| `...args` | `any` |
+| `...args` | `any`[] |
 
 #### Returns
 
 `void`
+
+___
+
+### existEvent
+
+▸ `Static` **existEvent**(`eventKey`): `boolean`
+
+校验是否存在某个事件
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `eventKey` | `string` |
+
+#### Returns
+
+`boolean`
 
 ___
 
@@ -125,6 +145,25 @@ ___
 ▸ `Static` **removeCallBack**(`eventKey`, `callback`): `void`
 
 删除某个事件与方法
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `eventKey` | `string` |
+| `callback` | `Function` |
+
+#### Returns
+
+`void`
+
+___
+
+### setOnceCallBack
+
+▸ `Static` **setOnceCallBack**(`eventKey`, `callback`): `void`
+
+设置某个一次性事件方法
 
 #### Parameters
 

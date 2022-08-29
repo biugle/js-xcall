@@ -38,10 +38,17 @@ XCall.dispatch('test', 123, 456);
 console.log(
   'hasCallBack-test',
   XCall.hasCallBack('test', test),
-  XCall.hasCallBack('test', () => {})
-); // hasCallBack-test true false
+  XCall.hasCallBack('test', () => {}),
+  XCall.existEvent('test')
+); // hasCallBack-test true false true
+
 
 XCall.removeCallBack('test', test);
+
+XCall.setOnceCallBack('test-once', test);
+XCall.existEvent('test-once', test); // true
+XCall.dispatch('test-once');
+XCall.existEvent('test-once', test); // false
 
 XCall.dispatch('test'); // test1 [Arguments] {}
 XCall.dispatch('test-not'); // Error: 未找到回调事件 test-not 的监听
