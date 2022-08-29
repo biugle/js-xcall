@@ -1,6 +1,6 @@
 {
   "entryPoints": [
-    "src/xcall.ts"
+    "src/index.ts"
   ],
   "out": "docs",
   "readme": "none",

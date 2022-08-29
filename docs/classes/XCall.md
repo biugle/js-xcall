@@ -1,4 +1,4 @@
-[js-xcall - v1.1.1](../README.md) / XCall
+[js-xcall - v1.2.0](../README.md) / XCall
 
 # Class: XCall
 

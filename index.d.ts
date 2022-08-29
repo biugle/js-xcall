@@ -10,4 +10,4 @@ declare class XCall {
 }
 export { XCall };
 export default XCall;
-//# sourceMappingURL=xcall.d.ts.map
+//# sourceMappingURL=index.d.ts.map

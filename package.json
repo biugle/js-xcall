@@ -1,6 +1,6 @@
 {
   "name": "js-xcall",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "A Simple Events Dispatcher Singleton Class.",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -17,12 +17,17 @@
     "clear": "rimraf ./node_modules && npm run remove",
     "remove": "rimraf ./dist && rimraf ./es && rimraf ./lib",
     "doc": "typedoc --options ./typedoc.json",
-    "pub": "npm install && npm run build && npm run doc && npm publish"
+    "pub": "npm install && npm run build && npm run doc && npm publish",
+    "push:before": "npm run build && npm run doc"
   },
   "files": [
     "/lib",
     "/es",
     "/dist",
+    "/xcall.js",
+    "/xcall.source.js",
+    "/index.d.ts",
+    "/index.d.ts.map",
     "/README.en.md",
     "/README.md"
   ],

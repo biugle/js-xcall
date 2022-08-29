@@ -11,42 +11,51 @@ const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 
 /** @type {import('rollup').RollupOptions} */
 const options = {
-  input: getPath('src/xcall.ts'),
+  input: getPath('src/index.ts'),
   output: [
     {
       file: getPath(pkg.main),
+      name: 'xcall',
       format: 'cjs',
-      exports: 'named',
       plugins: [terser()]
     },
     {
       file: getPath(pkg.module),
+      name: 'xcall',
       format: 'es',
-      exports: 'named',
       plugins: [terser()]
     },
     {
       file: getPath(pkg.unpkg),
-      format: 'umd',
       name: 'xcall',
-      exports: 'named',
+      format: 'umd',
+      plugins: [terser()]
+    },
+    {
+      file: getPath(pkg.iife),
+      name: 'xcall',
+      format: 'umd',
       plugins: [terser()]
     },
     {
       file: getPath(pkg['main-source']),
-      format: 'cjs', // lib
-      exports: 'named'
+      name: 'xcall',
+      format: 'cjs' // lib
     },
     {
       file: getPath(pkg['module-source']),
-      format: 'es', // es
-      exports: 'named'
+      name: 'xcall',
+      format: 'es' // es
     },
     {
       file: getPath(pkg['unpkg-source']),
-      format: 'umd', // dist
-      exports: 'named',
-      name: 'xcall'
+      name: 'xcall',
+      format: 'umd' // dist
+    },
+    {
+      file: getPath(pkg['iife-source']),
+      name: 'xcall',
+      format: 'umd' // iife
     }
   ],
   plugins: [resolve(extensions), commonjs(), typescript({ tsconfig: getPath('tsconfig.json'), extensions })]

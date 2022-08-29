@@ -3,7 +3,7 @@
  */
 class XCall {
   private static instance: XCall;
-  private constructor() { } // 单例禁止外部初始化
+  private constructor() {} // 单例禁止外部初始化
 
   /**
    * 获取 XCall 单例
@@ -26,9 +26,9 @@ class XCall {
 
   /**
    * 判断是否存在某个事件与方法
-   * @param eventKey 
-   * @param callBack 
-   * @returns 
+   * @param eventKey
+   * @param callBack
+   * @returns
    */
   static hasCallBack(eventKey: string, callBack: Function): boolean {
     if (!XCall.getInstance()._callBackMap[eventKey]) {
@@ -39,8 +39,8 @@ class XCall {
 
   /**
    * 添加某个事件与方法
-   * @param eventKey 
-   * @param callback 
+   * @param eventKey
+   * @param callback
    */
   static addCallBack(eventKey: string, callback: Function): void {
     if (!XCall.getInstance()._callBackMap[eventKey]) {
@@ -53,21 +53,23 @@ class XCall {
 
   /**
    * 删除某个事件与方法
-   * @param eventKey 
-   * @param callback 
-   * @returns 
+   * @param eventKey
+   * @param callback
+   * @returns
    */
   static removeCallBack(eventKey: string, callback: Function): void {
     if (!XCall.getInstance()._callBackMap[eventKey]) {
       return;
     }
-    XCall.getInstance()._callBackMap[eventKey] = XCall.getInstance()._callBackMap[eventKey]?.filter((callBackFunc) => callBackFunc != callback);
+    XCall.getInstance()._callBackMap[eventKey] = XCall.getInstance()._callBackMap[eventKey]?.filter(
+      (callBackFunc) => callBackFunc != callback
+    );
   }
 
   /**
    * 触发某个事件
-   * @param eventKey 
-   * @param args 
+   * @param eventKey
+   * @param args
    */
   static dispatch(eventKey: string, ...args: any) {
     if (!XCall.getInstance()._callBackMap[eventKey]) {
