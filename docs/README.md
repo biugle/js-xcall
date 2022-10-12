@@ -1,6 +1,6 @@
-js-xcall - v1.2.1
+js-xcall - v1.3.0
 
-# js-xcall - v1.2.1
+# js-xcall - v1.3.0
 
 ## Table of contents
 

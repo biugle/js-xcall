@@ -2,8 +2,8 @@
  * @Author: HxB
  * @Date: 2022-08-29 11:19:48
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-29 11:48:59
- * @Description: 主程序
+ * @LastEditTime: 2022-10-12 10:29:28
+ * @Description: 主程序 EventBus
  * @FilePath: \js-xcall\src\index.ts
  */
 /**
@@ -72,21 +72,21 @@ class XCall {
   }
 
   /**
-   * 设置某个一次性事件方法
+   * 设置某个一次性事件
    * @param eventKey
    * @param callback
    */
-  static setOnceCallBack(eventKey: string, callback: Function): void {
+  static setOnceEvent(eventKey: string, callback: Function): void {
     function _callback(...args: any[]) {
       // const args = Array.prototype.slice.call(arguments);
       callback?.apply(null, args);
-      XCall.removeCallBack(eventKey, _callback);
+      XCall.deleteEvent(eventKey);
     }
     XCall.addCallBack(eventKey, _callback);
   }
 
   /**
-   * 删除某个事件与方法
+   * 删除某个事件的某个方法
    * @param eventKey
    * @param callback
    * @returns
@@ -98,6 +98,37 @@ class XCall {
     XCall.getInstance()._callBackMap[eventKey] = XCall.getInstance()._callBackMap[eventKey]?.filter(
       (callBackFunc) => callBackFunc != callback
     );
+    if (!XCall.getInstance()._callBackMap[eventKey].length) {
+      XCall.deleteEvent(eventKey);
+    }
+  }
+
+  /**
+   * 去除某个监听事件
+   * @param eventKey
+   * @returns
+   */
+  static deleteEvent(eventKey: string): void {
+    if (!XCall.getInstance()._callBackMap[eventKey]) {
+      return;
+    }
+    Reflect.deleteProperty(XCall.getInstance()._callBackMap, eventKey);
+    // delete XCall.getInstance()._callBackMap[eventKey];
+  }
+
+  /**
+   * 获取监听事件或某个方法的数目
+   * @param eventKey
+   * @returns
+   */
+  static getCount(eventKey?: string): number {
+    if (!eventKey) {
+      return Object.keys(XCall.getInstance()._callBackMap).length;
+    }
+    if (!XCall.getInstance()._callBackMap[eventKey]) {
+      return 0;
+    }
+    return XCall.getInstance()._callBackMap[eventKey].length;
   }
 
   /**

@@ -1,7 +1,7 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.xcall = {}));
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.$call = {}));
 })(this, (function (exports) { 'use strict';
 
   var XCall = (function () {
@@ -37,14 +37,14 @@
               (_a = XCall.getInstance()._callBackMap[eventKey]) === null || _a === void 0 ? void 0 : _a.push(callback);
           }
       };
-      XCall.setOnceCallBack = function (eventKey, callback) {
+      XCall.setOnceEvent = function (eventKey, callback) {
           function _callback() {
               var args = [];
               for (var _i = 0; _i < arguments.length; _i++) {
                   args[_i] = arguments[_i];
               }
               callback === null || callback === void 0 ? void 0 : callback.apply(null, args);
-              XCall.removeCallBack(eventKey, _callback);
+              XCall.deleteEvent(eventKey);
           }
           XCall.addCallBack(eventKey, _callback);
       };
@@ -54,6 +54,24 @@
               return;
           }
           XCall.getInstance()._callBackMap[eventKey] = (_a = XCall.getInstance()._callBackMap[eventKey]) === null || _a === void 0 ? void 0 : _a.filter(function (callBackFunc) { return callBackFunc != callback; });
+          if (!XCall.getInstance()._callBackMap[eventKey].length) {
+              XCall.deleteEvent(eventKey);
+          }
+      };
+      XCall.deleteEvent = function (eventKey) {
+          if (!XCall.getInstance()._callBackMap[eventKey]) {
+              return;
+          }
+          Reflect.deleteProperty(XCall.getInstance()._callBackMap, eventKey);
+      };
+      XCall.getCount = function (eventKey) {
+          if (!eventKey) {
+              return Object.keys(XCall.getInstance()._callBackMap).length;
+          }
+          if (!XCall.getInstance()._callBackMap[eventKey]) {
+              return 0;
+          }
+          return XCall.getInstance()._callBackMap[eventKey].length;
       };
       XCall.dispatch = function (eventKey) {
           var _this = this;

@@ -1,4 +1,4 @@
-[js-xcall - v1.2.1](../README.md) / XCall
+[js-xcall - v1.3.0](../README.md) / XCall
 
 # Class: XCall
 
@@ -18,12 +18,14 @@ XCall 单例类
 ### Methods
 
 - [addCallBack](XCall.md#addcallback)
+- [deleteEvent](XCall.md#deleteevent)
 - [dispatch](XCall.md#dispatch)
 - [existEvent](XCall.md#existevent)
+- [getCount](XCall.md#getcount)
 - [getInstance](XCall.md#getinstance)
 - [hasCallBack](XCall.md#hascallback)
 - [removeCallBack](XCall.md#removecallback)
-- [setOnceCallBack](XCall.md#setoncecallback)
+- [setOnceEvent](XCall.md#setonceevent)
 
 ## Constructors
 
@@ -72,6 +74,24 @@ ___
 
 ___
 
+### deleteEvent
+
+▸ `Static` **deleteEvent**(`eventKey`): `void`
+
+去除某个监听事件
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `eventKey` | `string` |
+
+#### Returns
+
+`void`
+
+___
+
 ### dispatch
 
 ▸ `Static` **dispatch**(`eventKey`, ...`args`): `void`
@@ -106,6 +126,24 @@ ___
 #### Returns
 
 `boolean`
+
+___
+
+### getCount
+
+▸ `Static` **getCount**(`eventKey?`): `number`
+
+获取监听事件或某个方法的数目
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `eventKey?` | `string` |
+
+#### Returns
+
+`number`
 
 ___
 
@@ -144,7 +182,7 @@ ___
 
 ▸ `Static` **removeCallBack**(`eventKey`, `callback`): `void`
 
-删除某个事件与方法
+删除某个事件的某个方法
 
 #### Parameters
 
@@ -159,11 +197,11 @@ ___
 
 ___
 
-### setOnceCallBack
+### setOnceEvent
 
-▸ `Static` **setOnceCallBack**(`eventKey`, `callback`): `void`
+▸ `Static` **setOnceEvent**(`eventKey`, `callback`): `void`
 
-设置某个一次性事件方法
+设置某个一次性事件
 
 #### Parameters
 

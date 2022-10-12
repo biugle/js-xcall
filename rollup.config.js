@@ -33,7 +33,7 @@ const options = {
     },
     {
       file: getPath(pkg.iife),
-      name: 'xcall',
+      name: '$call',
       format: 'umd',
       plugins: [terser()]
     },
@@ -54,7 +54,7 @@ const options = {
     },
     {
       file: getPath(pkg['iife-source']),
-      name: 'xcall',
+      name: '$call',
       format: 'umd' // iife
     }
   ],

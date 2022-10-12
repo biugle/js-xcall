@@ -1,6 +1,6 @@
 {
   "name": "js-xcall",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "A Simple Events Dispatcher Singleton Class.",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -8,7 +8,7 @@
   "main-source": "lib/index.source.js",
   "module-source": "es/index.source.js",
   "unpkg-source": "dist/xcall.source.js",
-  "iife": "xcall.js",
+  "iife": "xcall.min.js",
   "iife-source": "xcall.source.js",
   "scripts": {
     "tsc": "tsc",
@@ -24,7 +24,7 @@
     "/lib",
     "/es",
     "/dist",
-    "/xcall.js",
+    "/xcall.min.js",
     "/xcall.source.js",
     "/index.d.ts",
     "/index.d.ts.map",

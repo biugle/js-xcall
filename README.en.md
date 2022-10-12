@@ -14,6 +14,12 @@ npm install js-xcall -S
 const { XCall } = require('js-xcall');
 import { XCall } from 'js-xcall';
 import XCall from 'js-xcall';
+
+<script src="xcall.min.js"></script>
+const { XCall } = $call;
+XCall.addCallBack('test', function () {
+  console.log('test-browser', arguments);
+});
 ```
 
 ## Use
@@ -42,16 +48,32 @@ console.log(
   XCall.existEvent('test')
 ); // hasCallBack-test true false true
 
+XCall.getCount(); // 1 (event count)
 
 XCall.removeCallBack('test', test);
-
-XCall.setOnceCallBack('test-once', test);
-XCall.existEvent('test-once', test); // true
-XCall.dispatch('test-once');
-XCall.existEvent('test-once', test); // false
-
+XCall.existEvent('test'); // true
+XCall.getCount('test'); // 1 (callback count)
 XCall.dispatch('test'); // test1 [Arguments] {}
+XCall.deleteEvent('test');
+XCall.getCount('test'); // 0 (callback count)
+XCall.existEvent('test'); // false
+
+XCall.setOnceEvent('test-once', test);
+XCall.existEvent('test-once'); // true
+XCall.getCount('test-once'); // 1 (callback count)
+XCall.getCount(); // 1 (event count)
+XCall.dispatch('test-once');
+XCall.existEvent('test-once'); // false
+
+XCall.getCount(); // 0  (event count)
+
 XCall.dispatch('test-not'); // Error: not found test-not
+
+XCall.addCallBack('hello', test); // only one callback
+XCall.existEvent('hello'); // true
+XCall.dispatch('hello', 0, 1); // test2 0 1
+XCall.removeCallBack('hello', test); // will remove event listener
+XCall.existEvent('hello'); // false
 ```
 
 ## API Docs
