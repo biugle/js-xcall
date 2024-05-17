@@ -78,10 +78,10 @@ XCall.existEvent('hello'); // false
 
 ## API 列表
 
-[API Docs](https://github.com/pandaoh/js-xcall/blob/main/docs/README.md)
+[API Docs](https://github.com/biugle/js-xcall/blob/main/docs/README.md)
 
 ## 其他
 
-* [Issue](https://github.com/pandaoh/js-xcall/issues)
-* [Pull Request](https://github.com/pandaoh/js-xcall/pulls)
+* [Issue](https://github.com/biugle/js-xcall/issues)
+* [Pull Request](https://github.com/biugle/js-xcall/pulls)
 * [hxbpandaoh@163.com](mailto:hxbpandaoh@163.com)

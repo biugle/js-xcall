@@ -1,6 +1,6 @@
 {
   "name": "js-xcall",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "A Simple Events Dispatcher Singleton Class.",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -33,16 +33,16 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pandaoh/js-xcall.git"
+    "url": "git+https://github.com/biugle/js-xcall.git"
   },
   "author": "hxb",
   "publisher": "hxbpandaoh@163.com",
   "blog": "http://a.biugle.cn",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pandaoh/js-xcall/issues"
+    "url": "https://github.com/biugle/js-xcall/issues"
   },
-  "homepage": "https://github.com/pandaoh/js-xcall#readme",
+  "homepage": "https://github.com/biugle/js-xcall#readme",
   "keywords": [
     "xcall",
     "js-xcall",

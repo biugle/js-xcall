@@ -8,6 +8,7 @@
  */
 /**
  * XCall 单例类
+ * 直接引入使用即可
  */
 class XCall {
   private static instance: XCall;
